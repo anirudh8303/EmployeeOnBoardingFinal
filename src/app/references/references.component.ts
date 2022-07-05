@@ -10,17 +10,43 @@ import { ReferenceService } from './reference.service';
   styleUrls: ['./references.component.css'],
 })
 export class ReferencesComponent implements OnInit {
-  public references!: Reference[];
+  public references: Reference[] = [
+    {
+    name: "", 
+    designation:"",
+    company:"", 
+    email: "",
+    phno: "",
+    name2: "",
+    designation2: "",
+    company2: "",
+    email2:"",
+    phno2: ""
+  }
+];
 
-  constructor(private referenceService: ReferenceService) {}
+  constructor(private referenceService: ReferenceService) {
+  }
   ngOnInit(): void {
     this.getReferences();
   }
+
+
   public getReferences(): void {
     this.referenceService.getReferences(1).subscribe(
       (response: any) => {
-        // console.log(response.references);
-        this.references = response.references;
+        this.references[0].name=response.references[0].name;
+        this.references[0].designation=response.references[0].designation;
+        this.references[0].company=response.references[0].company;
+        this.references[0].email=response.references[0].emailid;
+        this.references[0].phno=response.references[0].phno;
+        this.references[0].name2=response.references[1].name;
+        this.references[0].designation2=response.references[1].designation;
+        this.references[0].company2=response.references[1].company;
+        this.references[0].email2=response.references[1].emailid;
+        this.references[0].phno2=response.references[1].phno;
+
+        console.log(this.references[0]);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

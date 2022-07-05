@@ -28,6 +28,13 @@ export class ReferenceService {
                 "company": references.company,
                 "emailid": references.email,
                 "phno": references.phno
+            },
+            {
+              "name": references.name2,
+              "designation": references.designation2,
+              "company": references.company2,
+              "emailid": references.email2,
+              "phno": references.phno2
             }
         ]
     }

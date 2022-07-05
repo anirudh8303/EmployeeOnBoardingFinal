@@ -10,7 +10,7 @@
       <div class="line-right border-bottom border-primary px-3 py-1"></div>
     </div>
      <div class="p-3 pt-1">
-     <!--<p class="heading1">&nbsp;REFERENCE 1</p>
+     <p class="heading1">&nbsp;REFERENCE 1</p>
       <form #refForm="ngForm" (ngSubmit)="onAddReference(refForm)" id="ref-Form" [formGroup]="contactForm">
         <div class="form-row">
           <div class="row"  >
@@ -22,7 +22,7 @@
                 name="name"
                 formControlName="name"
                 placeholder="Name"
-                ngModel
+                ngModel="{{references[0]?.name}}"
               />
               <label for="name" class="text-secondary"
                 >Name&nbsp;<span class="text-danger">*</span></label
@@ -45,7 +45,7 @@
                 name="designation"
                 placeholder="Designation"
                 formControlName="designation"
-                ngModel
+                ngModel="{{references[0]?.designation}}"
               />
               <label for="designation" class="text-secondary"
                 >Designation&nbsp;<span class="text-danger">*</span></label
@@ -69,7 +69,7 @@
                 name="company"
                 placeholder="Company"
                 formControlName="company"
-                ngModel
+                ngModel="{{references[0]?.company}}"
               />
               <label for="company" class="text-secondary"
                 >Company&nbsp; <span class="text-danger">*</span></label
@@ -96,7 +96,7 @@
                 name="email"
                 placeholder="email"
                 formControlName="email"
-                ngModel
+                ngModel="{{references[0]?.email}}"
               />
               <label for="email" class="text-secondary"
                 >Email&nbsp; <span class="text-danger">*</span></label
@@ -119,7 +119,7 @@
                 name="phno"
                 placeholder="Phone Number"
                 formControlName="phno"
-                ngModel
+                ngModel="{{references[0]?.phno}}"
               />
               <label for="phno" class="text-secondary"
                 >Phone Number &nbsp;<span class="text-danger">*</span></label
@@ -147,7 +147,7 @@
                 name="name2"
                 formControlName="name2"
                 placeholder="Name"
-                ngModel
+                ngModel="{{references[0]?.name2}}"
               />
               <label for="name2" class="text-secondary"
                 >Name&nbsp;<span class="text-danger">*</span></label
@@ -170,7 +170,7 @@
                 name="designation2"
                 placeholder="Designation"
                 formControlName="designation2"
-                ngModel
+                ngModel="{{references[0]?.designation2}}"
               />
               <label for="designation2" class="text-secondary"
                 >Designation&nbsp;<span class="text-danger">*</span></label
@@ -194,7 +194,7 @@
                 name="company2"
                 placeholder="Company"
                 formControlName="company2"
-                ngModel
+                ngModel="{{references[0]?.company2}}"
               />
               <label for="company2" class="text-secondary"
                 >Company&nbsp; <span class="text-danger">*</span></label
@@ -221,7 +221,7 @@
                 name="email2"
                 placeholder="email"
                 formControlName="email2"
-                ngModel
+                ngModel="{{references[0]?.email2}}"
               />
               <label for="email2" class="text-secondary"
                 >Email&nbsp; <span class="text-danger">*</span></label
@@ -244,7 +244,7 @@
                 name="phno2"
                 placeholder="Phone Number"
                 formControlName="phno2"
-                ngModel
+                ngModel="{{references[0]?.phno2}}"
               />
               <label for="phno2" class="text-secondary"
                 >Phone Number &nbsp;<span class="text-danger">*</span></label
@@ -262,21 +262,16 @@
           </div>
         </div>
       </form>
-    </div> -->
-    <p class="heading1">&nbsp;REFERENCE 1</p>
-    <app-reference-form [id]="1"></app-reference-form>
-    <p class="heading1">&nbsp;REFERENCE 2</p>
-    <app-reference-form [id]="2"></app-reference-form>
-
+    </div> 
   </div>
-  <div class=" btncontrol" style="margin-top: 70px;">
+  <div class=" btncontrol">
     <div>
       <button type="button" class="btn btn-outline-primary rounded-0 m-1">
         EXIT
       </button>
     </div>
-    <div style="margin-top: 70px;">
-    <button type="submit" form="ref-Form1" form="ref-Form2"  class="btn btn-primary rounded-0 m-1">SAVE</button>
+    <div>
+    <button type="submit" form="ref-Form1" form="ref-Form"  class="btn btn-primary rounded-0 m-1">SAVE</button>
       <button type="submit" class="btn btn-primary rounded-0 m-1">
         SAVE & CONTINUE
       </button>
