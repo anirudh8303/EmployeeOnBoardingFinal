@@ -264,25 +264,20 @@
       </form>
     </div> 
   </div>
-  <div class=" btncontrol">
+  <div class="btncontrol">
     <div>
       <button type="button" class="btn btn-outline-primary rounded-0 m-1">
         EXIT
       </button>
+      <button type="button" class="btn btn-outline-primary rounded-0 m-1" (click)="gotoHome()" formtarget="blank">
+        BACK
+      </button>
     </div>
     <div>
-    <button type="submit" form="ref-Form1" form="ref-Form"  class="btn btn-primary rounded-0 m-1">SAVE</button>
-      <button type="submit" class="btn btn-primary rounded-0 m-1">
+    <button type="submit" form="ref-Form"  class="btn btn-primary rounded-0 m-1">SAVE</button>
+      <button type="submit" class="btn btn-primary rounded-0 m-1" form="ref-Form" (click)="gotoNominee()" formtarget="blank">
         SAVE & CONTINUE
       </button>
     </div>
   </div>
 </div>
-
-
-
-<!-- <h1>{{reference?.name}}</h1> -->
-
-<!-- <div *ngFor="let ref of references">
-  <h1>{{ref?.name}}</h1>
-</div> -->

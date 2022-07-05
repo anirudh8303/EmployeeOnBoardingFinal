@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Reference } from './reference';
 import { ReferenceService } from './reference.service';
 
@@ -12,39 +13,42 @@ import { ReferenceService } from './reference.service';
 export class ReferencesComponent implements OnInit {
   public references: Reference[] = [
     {
-    name: "", 
-    designation:"",
-    company:"", 
-    email: "",
-    phno: "",
-    name2: "",
-    designation2: "",
-    company2: "",
-    email2:"",
-    phno2: ""
-  }
-];
+      name: '',
+      designation: '',
+      company: '',
+      email: '',
+      phno: '',
+      name2: '',
+      designation2: '',
+      company2: '',
+      email2: '',
+      phno2: '',
+    },
+  ];
 
-  constructor(private referenceService: ReferenceService) {
-  }
+  // constructor(private router: Router) {}
+
+  constructor(
+    private referenceService: ReferenceService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.getReferences();
   }
 
-
   public getReferences(): void {
     this.referenceService.getReferences(1).subscribe(
       (response: any) => {
-        this.references[0].name=response.references[0].name;
-        this.references[0].designation=response.references[0].designation;
-        this.references[0].company=response.references[0].company;
-        this.references[0].email=response.references[0].emailid;
-        this.references[0].phno=response.references[0].phno;
-        this.references[0].name2=response.references[1].name;
-        this.references[0].designation2=response.references[1].designation;
-        this.references[0].company2=response.references[1].company;
-        this.references[0].email2=response.references[1].emailid;
-        this.references[0].phno2=response.references[1].phno;
+        this.references[0].name = response.references[0].name;
+        this.references[0].designation = response.references[0].designation;
+        this.references[0].company = response.references[0].company;
+        this.references[0].email = response.references[0].emailid;
+        this.references[0].phno = response.references[0].phno;
+        this.references[0].name2 = response.references[1].name;
+        this.references[0].designation2 = response.references[1].designation;
+        this.references[0].company2 = response.references[1].company;
+        this.references[0].email2 = response.references[1].emailid;
+        this.references[0].phno2 = response.references[1].phno;
 
         console.log(this.references[0]);
       },
@@ -54,20 +58,18 @@ export class ReferencesComponent implements OnInit {
     );
   }
 
-
-  public onAddReference(refForm: any): void{
+  public onAddReference(refForm: any): void {
     this.referenceService.addReferences(refForm.value).subscribe(
       (response: Reference) => {
         this.getReferences();
         refForm.reset();
       },
-      (error: HttpErrorResponse) =>{
+      (error: HttpErrorResponse) => {
         alert(error.message);
         refForm.reset();
       }
-    )
+    );
   }
-
 
   contactForm = new FormGroup({
     name: new FormControl('', [
@@ -139,5 +141,12 @@ export class ReferencesComponent implements OnInit {
   }
   get company2() {
     return this.contactForm.get('company2');
+  }
+
+  gotoNominee() {
+    this.router.navigate(['/nominee']); // define your component where you want to go
+  }
+  gotoHome() {
+    this.router.navigate(['/home']); // define your component where you want to go
   }
 }
